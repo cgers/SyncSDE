@@ -47,3 +47,25 @@ go
 select * from sysusers where name='sde'
 go
 ```
+# SQL Scripts in a More Useful Arrangement
+I most often use the scripts in the following order:
+
+```
+-- To check Sid's
+use master
+go
+select sid, * from syslogins where name='sde'
+go 
+
+use <database_name>
+go
+select sid, * from sysusers where name='sde'
+go
+
+-- If Sid's differ then sync the user as follows:
+
+use <database_name>
+go
+EXEC sp_change_users_login 'Update_One', 'sde', 'sde'
+go
+```
