@@ -19,7 +19,7 @@ go
 EXEC sp_change_users_login 'Update_One', 'sde', 'sde'
 go
 ```
-> ###Note: 
+> ### Note: 
 > The stored procedure 'sp_change_users_login' is in maintenance mode and may be deprecated by Microsoft. Use the following workflow for Microsoft SQL Server 2008 and later:
 
 1. Ensure the SQL Server login associated with the database user has been added to the instance under Security > Logins, prior to running the ALTER USER statement.
@@ -32,7 +32,7 @@ ALTER USER sde WITH login = sde
 go
 ```
 
-##Verify fix:
+## Verify fix:
 Attempting to make a connection to the database or within ArcCatalog as the SDE or USER login verifies that the login and user are properly synched.
 
 The following queries can also be run to query the syslogins table in the master database and compare this with the sysusers table found within the individual user database. To verify if the SID columns match, use the following query:
